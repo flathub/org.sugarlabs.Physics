@@ -1,0 +1,47 @@
+From 6fc675e848fa0bde3fea78b08b77d530e4a850a3 Mon Sep 17 00:00:00 2001
+From: Srevin Saju <srevin03@gmail.com>
+Date: Sat, 18 Jan 2020 23:30:29 +0300
+Subject: [PATCH] Fix icon size in ColorButton
+
+ColorButton did not show button icon, and swatches were too small
+making it almost unusable. Color chooser toolbar had been using
+Gtk.IconSize.LARGE_TOOLBAR which return 0 as size.
+style.GRID_CELL_SIZE was used as size reference
+---
+ src/sugar3/graphics/colorbutton.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/sugar3/graphics/colorbutton.py b/src/sugar3/graphics/colorbutton.py
+index 6d9c02a9..bef3cd38 100644
+--- a/src/sugar3/graphics/colorbutton.py
++++ b/src/sugar3/graphics/colorbutton.py
+@@ -66,7 +66,7 @@ class _ColorButton(Gtk.Button):
+         self._accept_drag = True
+ 
+         self._preview = Icon(icon_name='color-preview',
+-                             pixel_size=style.SMALL_ICON_SIZE)
++                             pixel_size=style.STANDARD_ICON_SIZE)
+ 
+         GObject.GObject.__init__(self, **kwargs)
+ 
+@@ -359,7 +359,7 @@ class _ColorPalette(Palette):
+             button = _ColorButton(has_palette=False,
+                                   color=Gdk.color_parse(color),
+                                   accept_drag=False,
+-                                  icon_size=Gtk.IconSize.LARGE_TOOLBAR)
++                                  icon_size=style.STANDARD_ICON_SIZE)
+             button.set_relief(Gtk.ReliefStyle.NONE)
+             self._swatch_tray.attach(button,
+                                      i % rows, i % rows + 1,
+@@ -476,7 +476,7 @@ class ColorToolButton(Gtk.ToolItem):
+ 
+         # The following is so that the behaviour on the toolbar is correct.
+         color_button.set_relief(Gtk.ReliefStyle.NONE)
+-        color_button.icon_size = Gtk.IconSize.LARGE_TOOLBAR
++        color_button.icon_size = style.STANDARD_ICON_SIZE
+ 
+         self._palette_invoker.attach_tool(self)
+         self._palette_invoker.props.toggle_palette = True
+-- 
+2.23.0
+
