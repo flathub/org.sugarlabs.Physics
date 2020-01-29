@@ -1,14 +1,5 @@
-From 5d4589f9772b7cce1066b77df412c8d6421d2fb9 Mon Sep 17 00:00:00 2001
-From: Martin Abente Lahaye <martin.abente.lahaye@gmail.com>
-Date: Mon, 2 Dec 2019 16:50:43 -0300
-Subject: [PATCH 3/6] fix-loading-world
-
----
- physics.py | 28 ++++++++++++++--------------
- 1 file changed, 14 insertions(+), 14 deletions(-)
-
 diff --git a/physics.py b/physics.py
-index 546695c..fd221af 100644
+index 300cf44..08eb52f 100644
 --- a/physics.py
 +++ b/physics.py
 @@ -109,27 +109,27 @@ class PhysicsGame:
@@ -53,6 +44,4 @@ index 546695c..fd221af 100644
              # Pump PyGame messages.
              for event in pygame.event.get():
                  if event.type == pygame.QUIT:
--- 
-2.19.1
 
