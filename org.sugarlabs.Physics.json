@@ -59,7 +59,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/sugarlabs/physics.git",
-                    "commit": "7bba010fe040a279d02361fda77db505d271c26a"
+                    "commit": "12c5f706ad57ab236d615029021d1fc6af306bd9"
                 },
                 {
                     "type": "patch",
