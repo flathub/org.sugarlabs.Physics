@@ -1,16 +1,8 @@
 diff --git a/activity.py b/activity.py
-index 48b588c..ca761d8 100644
+index 18c3593..d3d0e72 100644
 --- a/activity.py
 +++ b/activity.py
-@@ -40,7 +40,6 @@ from gi.repository import Gtk
- from gi.repository import GdkPixbuf
- 
- from sugar3.activity import activity
--from sugar3.activity.widgets import ActivityToolbarButton
- from sugar3.activity.widgets import StopButton
- from sugar3.graphics.objectchooser import ObjectChooser
- from sugar3.graphics.radiotoolbutton import RadioToolButton
-@@ -59,19 +58,21 @@ from collabwrapper import CollabWrapper
+@@ -60,19 +60,21 @@ from collabwrapper import CollabWrapper
  import tools
  from physics import PhysicsGame
  
@@ -23,27 +15,28 @@ index 48b588c..ca761d8 100644
  FAST_FPS = 50
  
  
--class PhysicsActivity(activity.Activity):
+-class PhysicsActivity(Activity):
 +class PhysicsActivity(SugarCompatibleActivity):
  
      def __init__(self, handle):
-         super(PhysicsActivity, self).__init__(handle)
+-        Activity.__init__(self, handle)
++        SugarCompatibleActivity.__init__(self, handle)
          self._collab = CollabWrapper(self)
          self._collab.message.connect(self.__message_cb)
 -        self.metadata['mime_type'] = 'application/x-physics-activity'
          self.add_events(Gdk.EventMask.ALL_EVENTS_MASK |
                          Gdk.EventMask.VISIBILITY_NOTIFY_MASK)
  
-@@ -136,7 +137,7 @@ class PhysicsActivity(activity.Activity):
-         self.max_participants = 4
+@@ -141,7 +143,7 @@ class PhysicsActivity(Activity):
+         self.set_toolbar_box(toolbar_box)
+         toolbar_box.show()
  
-         toolbar_box = ToolbarBox()
 -        activity_button = ActivityToolbarButton(self)
 +        activity_button = ExtendedActivityToolbarButton(self)
-         toolbar_box.toolbar.insert(activity_button, 0)
+         toolbar_box.toolbar.insert(activity_button, -1)
          activity_button.show()
  
-@@ -196,22 +197,6 @@ class PhysicsActivity(activity.Activity):
+@@ -202,22 +204,9 @@ class PhysicsActivity(Activity):
          toolbar_box.toolbar.insert(stop, -1)
          stop.show()
  
@@ -63,18 +56,21 @@ index 48b588c..ca761d8 100644
 -        activity_button.props.page.insert(load_project, -1)
 -        load_project.show()
 -
-         self.set_toolbar_box(toolbar_box)
-         toolbar_box.show_all()
-         create_toolbar.set_expanded(True)
-@@ -279,7 +264,6 @@ class PhysicsActivity(activity.Activity):
-         return (color.red / 256, color.green / 256, color.blue / 256)
++        self.set_toolbar_box(toolbar_box)
++        toolbar_box.show_all()
++        create_toolbar.set_expanded(True)
+         return toolbar_box
+ 
+     def __color_notify_cb(self, button, pdesc):
+@@ -282,7 +271,6 @@ class PhysicsActivity(Activity):
+         return (color.red // 256, color.green // 256, color.blue // 256)
  
      def can_close(self):
 -        self.preview = self.get_preview()
          self.game.running = False
          return True
  
-@@ -481,8 +465,6 @@ class PhysicsActivity(activity.Activity):
+@@ -484,8 +472,6 @@ class PhysicsActivity(Activity):
  
      def _export_json_cb(self, button):
          jobject = datastore.create()
@@ -83,7 +79,7 @@ index 48b588c..ca761d8 100644
  
          tmp_dir = os.path.join(self.get_activity_root(), 'instance')
          fd, file_path = tempfile.mkstemp(dir=tmp_dir)
-@@ -616,15 +598,6 @@ class PhysicsActivity(activity.Activity):
+@@ -619,15 +605,6 @@ class PhysicsActivity(Activity):
      def send_event(self, text):
          self._collab.post(dict(action='text', text=text))
  
@@ -99,4 +95,3 @@ index 48b588c..ca761d8 100644
      def __load_game(self, file_path, journal=False):
          confirmation_alert = ConfirmationAlert()
          confirmation_alert.props.title = _('Are You Sure?')
-

@@ -105,7 +105,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/sugarlabs/physics.git",
-                    "commit": "12c5f706ad57ab236d615029021d1fc6af306bd9"
+                    "commit": "cfd17b82b783f1ce4952ccdef6a8ddbe3d8f3e46"
                 },
                 {
                     "type": "patch",
@@ -114,10 +114,6 @@
                 {
                     "type": "patch",
                     "path": "physics-monitors.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "physics-fix-load.patch"
                 },
                 {
                     "type": "patch",
@@ -138,9 +134,7 @@
                 "install -D activity/mimetypes.xml /app/share/mime/packages/org.sugarlabs.Physics.xml",
                 "install -D appdata /app/share/metainfo/org.sugarlabs.Physics.appdata.xml",
                 "install -D desktop /app/share/applications/org.sugarlabs.Physics.desktop",
-                "install -D activity/activity-physics.svg /app/share/icons/hicolor/scalable/apps/org.sugarlabs.Physics.svg",
-                "rm /app/share/sugar/activities/Physics.activity/samples/example-1.json",
-                "rm /app/share/sugar/activities/Physics.activity/samples/thumbnails/example-1.png"
+                "install -D activity/activity-physics.svg /app/share/icons/hicolor/scalable/apps/org.sugarlabs.Physics.svg"
             ]
         }
     ]
