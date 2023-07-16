@@ -1,8 +1,8 @@
 diff --git a/activity.py b/activity.py
-index ca761d8..f5c074c 100644
+index 699378a..0d76dcf 100644
 --- a/activity.py
 +++ b/activity.py
-@@ -58,6 +58,7 @@ from collabwrapper import CollabWrapper
+@@ -60,6 +60,7 @@ from collabwrapper import CollabWrapper
  import tools
  from physics import PhysicsGame
  
@@ -10,9 +10,9 @@ index ca761d8..f5c074c 100644
  from sugarapp.widgets import ExtendedActivityToolbarButton
  from sugarapp.widgets import SugarCompatibleActivity
  
-@@ -89,8 +90,8 @@ class PhysicsActivity(SugarCompatibleActivity):
-         self._notebook = Gtk.Notebook(show_tabs=False)
+@@ -92,8 +93,8 @@ class PhysicsActivity(SugarCompatibleActivity):
          self._notebook.add(self.game.canvas)
+         self._notebook.show()
  
 -        w = Gdk.Screen.width()
 -        h = Gdk.Screen.height() - 2 * GRID_CELL_SIZE
@@ -21,10 +21,10 @@ index ca761d8..f5c074c 100644
  
          self.game.canvas.set_size_request(w, h)
  
-@@ -116,8 +117,8 @@ class PhysicsActivity(SugarCompatibleActivity):
+@@ -119,8 +120,8 @@ class PhysicsActivity(SugarCompatibleActivity):
          ''' Screen size has changed '''
          self.write_file(os.path.join(
-                         activity.get_activity_root(), 'data', 'data'))
+                         get_activity_root(), 'data', 'data'))
 -        w = Gdk.Screen.width()
 -        h = Gdk.Screen.height() - 2 * GRID_CELL_SIZE
 +        w = PrimaryMonitor.width()
@@ -32,7 +32,7 @@ index ca761d8..f5c074c 100644
          pygame.display.set_mode((w, h),
                                  pygame.RESIZABLE)
          self.read_file(os.path.join(
-@@ -645,7 +646,7 @@ class PhysicsActivity(SugarCompatibleActivity):
+@@ -652,7 +653,7 @@ class PhysicsActivity(SugarCompatibleActivity):
              self._sample_window.set_border_width(4)
  
              self._sample_window.set_size_request(
@@ -41,4 +41,3 @@ index ca761d8..f5c074c 100644
              self._sample_window.show()
  
              store = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
-
