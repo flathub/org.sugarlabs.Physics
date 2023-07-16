@@ -25,6 +25,42 @@
     "modules": [
         "shared-modules/pygame/pygame-1.9.4.json",
         {
+            "name": "pygame2",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://files.pythonhosted.org/packages/59/2a/cf94cd20b993baa764e3e7eae9e7084ca2d04c5e3f74eacf8f1ea62d9be9/pygame-2.5.0.tar.gz",
+                    "sha256": "edd5745b79435976d92c0a7318aedcafcb7ac4567125ac6ba88aa473559ef9ab",
+                    "x-checker-data": {
+                        "type": "pypi",
+                        "name": "pygame"
+                    }
+                }
+            ],
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --ignore-installed --no-deps --prefix=/app ."
+            ],
+            "build-options": {
+                "env": {
+                    "PORTMIDI_INC_PORTTIME": "1",
+                    "PYGAME_EXTRA_BASE": "/app"
+                },
+                "arch": {
+                    "aarch64": {
+                        "env": {
+                            "ORIGLIBDIRS": "/lib:/lib64:/lib/aarch64-linux-gnu"
+                        }
+                    },
+                    "x86_64": {
+                        "env": {
+                            "ORIGLIBDIRS": "/lib:/lib64:/lib/x86_64-linux-gnu"
+                        }
+                    }
+                }
+            }
+        },
+        {
             "name": "swig",
             "cleanup": [ "*" ],
             "sources": [
