@@ -121,6 +121,10 @@
                 },
                 {
                     "type": "patch",
+                    "path": "physics-fix-sugargame.patch"
+                },
+                {
+                    "type": "patch",
                     "path": "physics-fix-remove-joint.patch"
                 },
                 {
