@@ -113,6 +113,10 @@
                 },
                 {
                     "type": "patch",
+                    "path": "physics-fix-destroy.patch"
+                },
+                {
+                    "type": "patch",
                     "path": "physics-monitors.patch"
                 },
                 {
