@@ -28,8 +28,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://files.pythonhosted.org/packages/59/2a/cf94cd20b993baa764e3e7eae9e7084ca2d04c5e3f74eacf8f1ea62d9be9/pygame-2.5.0.tar.gz",
-                    "sha256": "edd5745b79435976d92c0a7318aedcafcb7ac4567125ac6ba88aa473559ef9ab",
+                    "url": "https://files.pythonhosted.org/packages/c6/aa/2c0c867d6cff00966cfc2152b25f61599f87e88b239e4dcb8ad5357f0f69/pygame-2.5.2.tar.gz",
+                    "sha256": "c1b89eb5d539e7ac5cf75513125fb5f2f0a2d918b1fd6e981f23bf0ac1b1c24a",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "pygame"
@@ -61,39 +61,41 @@
         },
         {
             "name": "swig",
-            "cleanup": [ "*" ],
+            "cleanup": [
+                "*"
+            ],
             "sources": [
                 {
                     "type": "git",
-                     "url": "https://github.com/swig/swig.git",
-                     "tag": "v4.1.1",
-                     "commit": "77323a0f07562b7d90d36181697a72a909b9519a",
-                     "x-checker-data": {
-                         "type": "git",
-                         "tag-pattern": "^(?:v|rel-)([\\d.]+)$"
-                     }
+                    "url": "https://github.com/swig/swig.git",
+                    "tag": "v4.1.1",
+                    "commit": "77323a0f07562b7d90d36181697a72a909b9519a",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^(?:v|rel-)([\\d.]+)$"
+                    }
                 }
             ]
         },
         {
             "name": "box2d",
-             "buildsystem": "simple",
-             "build-commands": [
-                 "python3 setup.py build_ext --inplace",
-                 "pip3 install --no-index --find-links \"file://${PWD}\" --prefix=${FLATPAK_DEST} ."
-             ],
-             "sources": [
-                 {
-                     "type": "git",
-                     "url": "https://github.com/pybox2d/pybox2d.git",
-                     "tag": "2.3.10",
-                     "commit": "ed9d7b04f7099a15984c727dbce46c13abd64409",
-                     "x-checker-data": {
-                         "type": "git",
-                         "tag-pattern": "^([\\d.]+)$"
-                     }
-                 }
-             ]
+            "buildsystem": "simple",
+            "build-commands": [
+                "python3 setup.py build_ext --inplace",
+                "pip3 install --no-index --find-links \"file://${PWD}\" --prefix=${FLATPAK_DEST} ."
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/pybox2d/pybox2d.git",
+                    "tag": "2.3.10",
+                    "commit": "ed9d7b04f7099a15984c727dbce46c13abd64409",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^([\\d.]+)$"
+                    }
+                }
+            ]
         },
         {
             "name": "physics",
