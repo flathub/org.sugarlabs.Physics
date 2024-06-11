@@ -9,7 +9,8 @@ To know more refer: https://github.com/sugarlabs/physics
 ```
 git clone https://github.com/flathub/org.sugarlabs.Physics.git
 cd org.sugarlabs.Physics
-flatpak -y --user install org.gnome.{Platform,Sdk}//44
+flatpak -y --user install flathub org.gnome.{Platform,Sdk}//46
+flatpak -y --user install org.sugarlabs.BaseApp//24.04
 flatpak-builder --user --force-clean --install build org.sugarlabs.Physics.json
 ```
 
