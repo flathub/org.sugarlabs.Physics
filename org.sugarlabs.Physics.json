@@ -18,9 +18,16 @@
     "cleanup": [
         "/include",
         "/lib/pkgconfig",
+        "/lib/python3.*/*/pygame/tests",
+        "/lib/python3.*/*/pygame/examples",
+        "/lib/python3.*/*/pygame/docs",
         "/share/aclocal",
         "/share/info",
-        "/share/man"
+        "/share/man",
+        "/share/sugar/activities/Physics.activity/po"
+    ],
+    "cleanup-commands": [
+      "rm -rf /app/share/gir-1.0"
     ],
     "modules": [
         "shared-modules/SDL2/SDL2_ttf.json",
