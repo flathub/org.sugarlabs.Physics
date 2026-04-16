@@ -120,31 +120,15 @@
                 },
                 {
                     "type": "patch",
-                    "path": "physics-port.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "physics-fix-destroy.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "physics-monitors.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "physics-fix-save.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "physics-fix-sugargame.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "physics-fix-remove-joint.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "physics-info.patch"
+                    "paths": [
+                        "patches/physics-port.patch",
+                        "patches/physics-fix-destroy.patch",
+                        "patches/physics-monitors.patch",
+                        "patches/physics-fix-save.patch",
+                        "patches/physics-fix-sugargame.patch",
+                        "patches/physics-fix-remove-joint.patch",
+                        "patches/physics-info.patch"
+                    ]
                 }
             ],
             "post-install": [
